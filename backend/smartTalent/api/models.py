@@ -165,7 +165,7 @@ class Convocatoria(models.Model):
     convocatoria_nombre = models.CharField(max_length=100,verbose_name="Nombre Convocatoria")
     nombre_entidad = models.CharField(max_length=50,verbose_name="Entidad")
     convocatoria_photo = CloudinaryField('image',default='')
-    
+    convocatoria_descripcion = models.CharField(null=True,max_length=1000,verbose_name="descripcion Convocatoria")
     # convocatoria_photo = models.ImageField(upload_to='photos',blank=True)
 
     fecha_inicio = models.DateTimeField(null=True,verbose_name='Fecha inicio')

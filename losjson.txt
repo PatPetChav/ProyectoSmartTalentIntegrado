@@ -1,0 +1,91 @@
+    "postulante_id":"1",
+    "postulante_nombre":"Ruben",
+    "postulante_apellido":"Salas", 
+    "postulante_dni":"12457845",
+    "postulante_email":"ruben@gmail.com",
+    "postulante_fecha_nacimiento":"01/01/2019", 
+    "postulante_genero":"masculino",
+    "postulante_pais":"Perú", 
+    "postulante_celular":"959635241",
+    "postulante_departamento":"Lima",
+    "postulante_provincia":"Lima", 
+    "postulante_direccion":"Av. Lima 1234",
+    "fecha_postulacion":"14/06/2022", 
+    "mes_postulacion":"6",
+    "estado":"activo", 
+
+
+{
+  "ok": true,
+  "content": {
+    "postulante_id": 2,
+    "postulante_nombre": "Maria",
+    "postulante_apellido": "Ramirez",
+    "postulante_dni": "45457845",
+    "postulante_email": "maria@gmail.com",
+    "postulante_fecha_nacimiento": "2008-12-18T02:06:04Z",
+    "postulante_genero": "femenino",
+    "postulante_pais": "Perú",
+    "postulante_celular": "959635241",
+    "postulante_departamento": "Lima",
+    "postulante_provincia": "Lima",
+    "postulante_direccion": "Av. Lima 1234",
+    "fecha_postulacion": "2022-06-15T02:06:04Z",
+    "mes_postulacion": 6,
+    "estado": "activo"
+  }
+}
+
+{
+    "postulante_id":"1",
+    "test_id":"1",
+    "calificacion":"5", 
+}
+
+{
+
+    "postulante_id":"1",
+    "convocatoria_id":"1",
+    "calf_academica":"20",
+    "calf_laboral":"20",
+    "calf_psicologica":"80",
+    "calf_asertividad":"75",
+    "calf_autoestima":"25",
+    "calf_comunicacion":"30",
+    "calf_tomadecision":"20",
+    "estado":"activo"
+}
+
+{
+
+    "postulante_id":"1",
+    "profesion":"Ing. Industrial",  "area_profesional":"RecHumCapacit",
+"nivel_academico":"universitario"
+    "centro_estudios":"UCV",
+    "fecha_egreso":"2008-12-18T02:06:04Z",
+    "curso_adicional_1":"optimizacion",
+    "curso_adicional_2":"permiss",
+    "nivel_ingles":"basico"
+}
+
+
+ {
+
+    "postulante_id":"1",
+    "nombre_empresa" :"Jasa",
+    "ruc" :"2041584514",
+    "telefono":"52454154",
+    "direccion" :"Calle Laureles 145",
+    "cargo_desempenho" :"Operario",
+    "fecha_inicio" :"2008-12-18T02:06:04Z",
+    "fecha_termino":"2018-12-18T02:06:04Z",
+    "descripcion_actividad" :"encargado de operaciones",
+    "tiempo":"De 0 a 1 anho"
+    }
+
+
+
+
+
+
+
