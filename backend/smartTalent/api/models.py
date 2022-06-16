@@ -80,7 +80,7 @@ class Academico(models.Model):
     calificacion_id=models.AutoField(primary_key=True)
     postulante_id = models.ForeignKey(Postulante,on_delete=models.RESTRICT)
     profesion = models.CharField(max_length=100,verbose_name="Profesion")
-    area_profesional = models.CharField(max_length=15)
+    area_profesional = models.CharField(max_length=100)
     nivel_academico = models.CharField(max_length=15,default='universitario',choices=NIVEL_CHOICES)
     centro_estudios = models.CharField(max_length=50,verbose_name="Centro de Estudios")
     fecha_egreso = models.DateTimeField(null=True,verbose_name='Fecha de egreso')

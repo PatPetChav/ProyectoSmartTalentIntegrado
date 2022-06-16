@@ -8,6 +8,7 @@ urlpatterns = [
     path('form-postulante/',views.PostulanteView.as_view()),
     path('form-academico/',views.AcademicoView.as_view()),
     path('form-laboral/',views.LaboralView.as_view()),
+    path('test/',views.TestView.as_view()),
     path('form-psicologico/',views.PsicologicoView.as_view()),
     path('calificacion/',views.CalificacionView.as_view()),
     # path('sign-in',views.UsuarioView.as_view()),

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import ( Convocatoria,Postulante,Academico,Laboral, Psicologico,Calificacion);
+from .models import ( Convocatoria,Postulante,Academico,Laboral, Psicologico,Calificacion,Test);
 
 class ConvocatoriaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -65,3 +65,8 @@ class CalificacionSerializerGET(serializers.ModelSerializer):
         model = Calificacion
         fields = '__all__'
 
+
+class TestSerializerGET(serializers.ModelSerializer):
+    class Meta:
+        model = Test
+        fields = '__all__'

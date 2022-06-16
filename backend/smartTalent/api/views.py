@@ -4,11 +4,11 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 from .models import (
-    Convocatoria,Postulante,Academico,Laboral,Psicologico,Calificacion
+    Convocatoria,Postulante,Academico,Laboral,Psicologico,Calificacion,Test
 )
 
 from .serializers import(
-    ConvocatoriaSerializer,PostulanteSerializerPOST,PostulanteSerializerGET ,AcademicoSerializerPOST,AcademicoSerializerGET,LaboralSerializerGET,LaboralSerializerPOST,PsicologicoSerializerGET,PsicologicoSerializerPOST,CalificacionSerializerGET,CalificacionSerializerPOST
+    ConvocatoriaSerializer,PostulanteSerializerPOST,PostulanteSerializerGET ,AcademicoSerializerPOST,AcademicoSerializerGET,LaboralSerializerGET,LaboralSerializerPOST,PsicologicoSerializerGET,PsicologicoSerializerPOST,CalificacionSerializerGET,CalificacionSerializerPOST,TestSerializerGET
 )
 
 class IndexView(APIView):
@@ -43,13 +43,15 @@ class PostulanteView(APIView):
 
         context = {
             'ok':True,
-            'postulante':serPostulante.data
+            'content':serPostulante.data
         }
 
         return Response(context)
 
     def post(self,request):
+        print(request.data)
         serPostulante = PostulanteSerializerPOST(data=request.data)
+        print(serPostulante.is_valid())
         serPostulante.is_valid(raise_exception=True)
         serPostulante.save()
 
@@ -62,18 +64,21 @@ class PostulanteView(APIView):
 class AcademicoView(APIView):
 
     def get(self,request):
+        
         dataAcademico = Academico.objects.all()
         serAcademico = AcademicoSerializerGET(dataAcademico,many=True)
 
         context = {
             'ok':True,
-            'academco':serAcademico.data
+            'content':serAcademico.data
         }
 
         return Response(context)
 
     def post(self,request):
+        print(request.data)
         serAcademico = AcademicoSerializerPOST(data=request.data)
+        print(serAcademico.is_valid())
         serAcademico.is_valid(raise_exception=True)
         serAcademico.save()
 
@@ -92,7 +97,7 @@ class LaboralView(APIView):
 
         context = {
             'ok':True,
-            'laboral':serLaboral.data
+            'content':serLaboral.data
         }
 
         return Response(context)
@@ -116,7 +121,7 @@ class PsicologicoView(APIView):
 
         context = {
             'ok':True,
-            'psicologico':serPsicologico.data
+            'content':serPsicologico.data
         }
 
         return Response(context)
@@ -141,7 +146,7 @@ class CalificacionView(APIView):
 
         context = {
             'ok':True,
-            'calificacion':serCalificacion.data
+            'content':serCalificacion.data
         }
 
         return Response(context)
@@ -155,4 +160,17 @@ class CalificacionView(APIView):
             'ok':True,
             'content':serCalificacion.data
         }
+        return Response(context)
+
+class TestView(APIView):
+
+    def get(self,request):
+        dataTest = Test.objects.all()
+        serTest = TestSerializerGET(dataTest,many=True)
+
+        context = {
+            'ok':True,
+            'content':serTest.data
+        }
+
         return Response(context)
