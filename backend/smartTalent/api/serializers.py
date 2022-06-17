@@ -61,9 +61,12 @@ class CalificacionSerializerPOST(serializers.ModelSerializer):
         fields = ['calificacion_id','postulante_id','convocatoria_id','calf_academica','calf_laboral','calf_psicologica','calf_asertividad','calf_autoestima','calf_comunicacion','calf_tomadecision','estado']
    
 class CalificacionSerializerGET(serializers.ModelSerializer):
+    postulante = PostulanteSerializerGET(source = 'postulante_id')
+    convocatoria = ConvocatoriaSerializer(source = 'convocatoria_id')
     class Meta:
         model = Calificacion
         fields = '__all__'
+        
 
 
 class TestSerializerGET(serializers.ModelSerializer):
