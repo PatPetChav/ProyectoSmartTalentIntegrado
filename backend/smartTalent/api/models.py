@@ -1,3 +1,4 @@
+from tokenize import String
 from django.db import models
 from tkinter.tix import Tree
 from django.db import models
@@ -173,6 +174,7 @@ class Convocatoria(models.Model):
     numero_vacantes = models.IntegerField(default=1)
     remuneracion = models.DecimalField(max_digits=9,decimal_places=2)
     estado = models.CharField(max_length=15,default='activo',choices=ESTADO_CHOICES)
+    lugar = models.CharField(max_length=100,verbose_name="lugar",null=True)
     
     def __str__(self):
         return self.convocatoria_nombre
@@ -190,7 +192,7 @@ class Calificacion(models.Model):
 
     calificacion_id=models.AutoField(primary_key=True)
     postulante_id = models.ForeignKey(Postulante,on_delete=models.RESTRICT)
-    convocatoria_id = models.ForeignKey(Convocatoria,on_delete=models.RESTRICT)
+    convocatoria_id = models.ForeignKey(Convocatoria,on_delete=models.RESTRICT,related_name='convocatoriaID')
     calf_academica = models.DecimalField(max_digits=9,decimal_places=2)
     calf_laboral = models.DecimalField(max_digits=9,decimal_places=2)
     calf_psicologica = models.DecimalField(max_digits=9,decimal_places=2)
@@ -200,5 +202,5 @@ class Calificacion(models.Model):
     calf_tomadecision = models.DecimalField(max_digits=9,decimal_places=2)
     estado = models.CharField(max_length=15,default='activo',choices=ESTADO_CHOICES)
 
-    def __str__(self):
-        return self.calf_academica
+    # def __str__(self):
+    #     return self.calf_academica

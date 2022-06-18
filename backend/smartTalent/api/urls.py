@@ -13,6 +13,7 @@ urlpatterns = [
     path('calificacion/',views.CalificacionView.as_view()),
     # path('sign-in',views.UsuarioView.as_view()),
     # path('dashboard/<str:name>',views.DashboardView.as_view()),
+    path('dashboard/<int:notaMinima>',views.DashboardView.as_view()),
     # path('tables/<str:name>',views.TablesView.as_view()),
     # path('detalle-postulante/<str:name>',views.DetalleView.as_view()),
 ]

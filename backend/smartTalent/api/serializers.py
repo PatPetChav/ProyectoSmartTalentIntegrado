@@ -12,6 +12,18 @@ class ConvocatoriaSerializer(serializers.ModelSerializer):
         representacion['convocatoria_photo'] = instance.convocatoria_photo.url
         return representacion
 
+class CalificacionDashSerializerGET(serializers.ModelSerializer):
+    class Meta:
+        model = Calificacion
+        fields = ['calificacion_id']
+
+class ConvocatoriaDashSerializer(serializers.ModelSerializer):
+    nroPostulantes = CalificacionDashSerializerGET(source='convocatoriaID' ,many=True)
+    class Meta:
+        model = Convocatoria
+        fields = ['convocatoria_id','convocatoria_nombre','nroPostulantes']    
+  
+
 class PostulanteSerializerPOST(serializers.ModelSerializer):
     class Meta:
         model = Postulante
@@ -59,6 +71,9 @@ class CalificacionSerializerPOST(serializers.ModelSerializer):
     class Meta:
         model = Calificacion
         fields = ['calificacion_id','postulante_id','convocatoria_id','calf_academica','calf_laboral','calf_psicologica','calf_asertividad','calf_autoestima','calf_comunicacion','calf_tomadecision','estado']
+
+
+     
    
 class CalificacionSerializerGET(serializers.ModelSerializer):
     postulante = PostulanteSerializerGET(source = 'postulante_id')

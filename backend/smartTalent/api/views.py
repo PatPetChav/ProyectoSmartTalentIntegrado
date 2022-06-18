@@ -9,7 +9,7 @@ from .models import (
 )
 
 from .serializers import(
-    ConvocatoriaSerializer,PostulanteSerializerPOST,PostulanteSerializerGET ,AcademicoSerializerPOST,AcademicoSerializerGET,LaboralSerializerGET,LaboralSerializerPOST,PsicologicoSerializerGET,PsicologicoSerializerPOST,CalificacionSerializerGET,CalificacionSerializerPOST,TestSerializerGET
+    ConvocatoriaSerializer,PostulanteSerializerPOST,PostulanteSerializerGET ,AcademicoSerializerPOST,AcademicoSerializerGET,LaboralSerializerGET,LaboralSerializerPOST,PsicologicoSerializerGET,PsicologicoSerializerPOST,CalificacionSerializerGET,CalificacionSerializerPOST,TestSerializerGET,ConvocatoriaDashSerializer
 )
 
 class IndexView(APIView):
@@ -165,6 +165,37 @@ class CalificacionView(APIView):
             'content':serCalificacion.data
         }
         return Response(context)
+
+class DashboardView(APIView):
+
+      def get(self,request,notaMinima):
+        dataConvocatoria = Convocatoria.objects.all()
+        data = []
+        for convocatoria in dataConvocatoria:
+            calificaciones = Calificacion.objects.filter(convocatoria_id=convocatoria.convocatoria_id).all()
+            aprobado = 0
+            for calificacion in calificaciones:
+                sumatoria = calificacion.calf_psicologica  + calificacion.calf_academica + calificacion.calf_laboral
+               
+                if sumatoria >notaMinima:
+                    aprobado = aprobado+1                
+                
+            data.append({
+                "convocatoria_id": convocatoria.convocatoria_id,
+                "convocatoria_nombre": convocatoria.convocatoria_nombre,
+                "convocatoria_postulantes": len(calificaciones),
+                "convocatoria_aprobados": aprobado
+            })
+
+        context = {
+            'ok':True,
+            'content': data
+        }
+
+        return Response(context)
+
+   
+  
 
 class TestView(APIView):
 
