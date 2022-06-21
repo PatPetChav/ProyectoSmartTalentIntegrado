@@ -1,9 +1,5 @@
-from tokenize import String
-from django.db import models
-from tkinter.tix import Tree
 from django.db import models
 from django.contrib.auth.models import User
-
 from cloudinary.models import CloudinaryField
 
 class Postulante(models.Model):

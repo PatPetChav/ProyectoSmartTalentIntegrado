@@ -6,3 +6,8 @@ djangorestframework-simplejwt
 mysqlclient
 Pillow
 python-decouple
+djangorestframework-simplejwt
+gunicorn
+psycopg2
+# whitenoise
+# dj-database-url
